@@ -63,9 +63,9 @@ fetch('markers.csv')
           .bindPopup(`<b>${title}</b>`)
           .bindTooltip(title, {
             //permanent: true,
-            direction: 'top',
-            offset: [0, -10],
-            className: 'plain-label'
+            //direction: 'top',
+            //offset: [0, -10],
+            //className: 'plain-label'
           });
         marker.addTo(allLayers);
       }
