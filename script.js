@@ -53,7 +53,7 @@ fetch('markers.csv')
       const title = row.Title || 'No Title';
 
       if (!isNaN(lat) && !isNaN(lng)) {
-        const marker = createStarMarker([lat, lng], title);
+        const marker = L.marker([lat, lng]).bindPopup(`<b>${title}</b>`);
         marker.addTo(allLayers);
       }
     });
