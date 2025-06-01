@@ -36,7 +36,7 @@ fetch('subsidence.geojson')
 
 
 const customIcon = L.icon({
-  iconUrl: 'files/loc1.png', // Path to your image
+  iconUrl: 'files/loc2.png', // Path to your image
   iconSize: [22, 22],        // Adjust the size as needed
   iconAnchor: [16, 32],      // Point of the icon which will correspond to marker's location
   popupAnchor: [0, -32]      // Point from which the popup should open relative to the iconAnchor
