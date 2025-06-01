@@ -62,7 +62,7 @@ fetch('markers.csv')
         const marker = L.marker([lat, lng], { icon: customIcon })
           .bindPopup(`<b>${title}</b>`)
           .bindTooltip(title, {
-            permanent: true,
+            //permanent: true,
             direction: 'top',
             offset: [0, -10],
             className: 'plain-label'
