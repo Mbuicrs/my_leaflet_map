@@ -53,13 +53,14 @@ fetch('markers.csv')
       const title = row.Title || 'No Title';
 
       if (!isNaN(lat) && !isNaN(lng)) {
-        const marker = L.marker([lat, lng]).bindPopup(`<b>${title}</b>`);
+        const marker = createStarMarker([lat, lng], title);
         marker.addTo(allLayers);
       }
     });
     fitMapToLayers();
   })
   .catch((error) => console.error('Error loading CSV:', error));
+
 function createStarMarker(latlng, title) {
   const circle = L.circleMarker(latlng, {
     radius: 10,
