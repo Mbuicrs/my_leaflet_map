@@ -3,3 +3,23 @@ html, body, #map {
   margin: 0;
   padding: 0;
 }
+
+
+/* Remove background, border, and shadow */
+.leaflet-tooltip.plain-label {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  color: #000; /* Adjust text color as needed */
+}
+
+/* Remove the tooltip pointer (the small triangle) */
+.leaflet-tooltip-top.plain-label::before,
+.leaflet-tooltip-bottom.plain-label::before,
+.leaflet-tooltip-left.plain-label::before,
+.leaflet-tooltip-right.plain-label::before {
+  border: none;
+}
