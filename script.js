@@ -25,6 +25,18 @@ fetch('subsidence.geojson')
     fitMapToLayers();
   })
   .catch((error) => console.error('Error loading GeoJSON:', error));
+L.geoJSON(geojsonData, {
+  style: {
+    fillColor: 'gray',
+    fillOpacity: 0.4,
+    stroke: false
+  },
+  onEachFeature: (feature, layer) => {
+    if (feature.properties && feature.properties.name) {
+      layer.bindPopup(`<b>${feature.properties.name}</b>`);
+    }
+  }
+}).addTo(allLayers);
 
 // Load and display CSV data
 fetch('markers.csv')
@@ -48,6 +60,27 @@ fetch('markers.csv')
     fitMapToLayers();
   })
   .catch((error) => console.error('Error loading CSV:', error));
+function createStarMarker(latlng, title) {
+  const circle = L.circleMarker(latlng, {
+    radius: 10,
+    fillColor: '#ffffff',
+    fillOpacity: 1,
+    color: '#ff0000',
+    weight: 2
+  });
+
+  const starIcon = L.divIcon({
+    html: '<div class="star-marker">&#9733;</div>',
+    className: '',
+    iconSize: [20, 20]
+  });
+
+  const star = L.marker(latlng, { icon: starIcon });
+
+  const group = L.layerGroup([circle, star]);
+  group.bindPopup(`<b>${title}</b>`);
+  return group;
+}
 
 // Function to fit map to all layers
 function fitMapToLayers() {
